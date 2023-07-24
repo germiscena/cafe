@@ -88,7 +88,7 @@ const Main = () => {
           </div>
           <h3
             onClick={() => {
-              postFood([makeOrder, localStorage.getItem("Пользователь")]);
+              postFood([makeOrder, localStorage.getItem("Пользователь"), price]);
               popUpTimeout();
             }}
             className={makeOrder != false ? "myOrder_button" : "myOrder_button blur"}>

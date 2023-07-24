@@ -54,6 +54,7 @@ const Admin = () => {
           })}
           <div className='adminBlock_total'>
             <h3>Итого</h3>
+            {/* <h3>{totalPrice}</h3> */}
             <div className='adminBlock_total_items'>
               {totalItems.map((item) => {
                 return (
