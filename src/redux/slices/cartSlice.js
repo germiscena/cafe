@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 
 const initialState = {
   items: [],
+  price: 0,
 };
 
 const cartSlice = createSlice({
@@ -13,14 +13,31 @@ const cartSlice = createSlice({
       const findItem = state.items.find((obj) => obj.name == action.payload.name);
       if (findItem) {
         findItem.count++;
-      } else state.items.push(action.payload);
+        state.price += Number(action.payload.price);
+      } else {
+        state.items.push(action.payload);
+        state.price += Number(action.payload.price);
+      }
     },
     clearCart(state) {
       state.items = [];
     },
+    deleteFromCart(state, action) {
+      const findItem = state.items.find((obj) => obj.name == action.payload.name);
+      if (findItem.count > 1) {
+        findItem.count--;
+        state.price -= Number(action.payload.price);
+      } else {
+        state.items.splice(
+          state.items.findIndex((arrow) => arrow.id === action.payload),
+          1,
+        );
+        state.price -= Number(action.payload.price);
+      }
+    },
   },
 });
 
-export const { addToCart, clearCart } = cartSlice.actions;
+export const { addToCart, clearCart, deleteFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

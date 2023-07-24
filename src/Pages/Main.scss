@@ -1,20 +1,19 @@
 .main {
-  background-color: #f29a9a;
+  background-color: #c2bbbb;
   color: white;
   font-size: 20px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 100%;
-  min-height: 90vh;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: start;
+  height: 90vh;
 
   &_order {
     position: fixed;
     bottom: 0;
     height: 8vh;
     width: 100%;
-    background-color: rgb(211, 75, 75);
+    background-color: #656565;
     text-align: center;
     cursor: pointer;
 
@@ -28,26 +27,19 @@
 
 .popUp {
   position: fixed;
-  top: 12vh;
   left: 0;
   right: 0;
   margin: 0 auto;
-  height: 30vw;
+  top: 40vh;
   width: 50vw;
-  background-color: rgb(218, 113, 113);
+  background-color: #c2bbbb;
+  border: 2px solid #656565;
   border-radius: 20px;
   padding: 20px;
-  &_close {
-    border: none;
-    border-radius: 50%;
-    font-size: 2vh;
-    background-color: transparent;
-    color: black;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-left: 10px;
-    padding-left: 90%;
-  }
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
   &_main {
     display: flex;
     flex-direction: row;
@@ -57,10 +49,13 @@
     &_information {
       font-size: 10px;
     }
-    &_image {
-      width: 30vw;
-      height: 20vw;
-    }
+  }
+  &_close {
+    border: 0;
+    background-color: #656565;
+    width: 5%;
+    padding: 0;
+    margin-left: 95%;
   }
 }
 .myOrder {
@@ -112,7 +107,7 @@
     padding-top: 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: #d34b4b;
+    background-color: #656565;
     cursor: pointer;
   }
   &_header {
@@ -125,7 +120,7 @@
 }
 
 .loading {
-  background-color: #f29a9a;
+  background-color: #c2bbbb;
   color: white;
   height: 90vh;
   text-align: center;
