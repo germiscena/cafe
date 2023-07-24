@@ -13,7 +13,7 @@ const cartSlice = createSlice({
       const findItem = state.items.find((obj) => obj.name == action.payload.name);
       if (findItem) {
         findItem.count++;
-        state.price += Number(action.payload.price);
+        state.price += Number(findItem.price);
       } else {
         state.items.push(action.payload);
         state.price += Number(action.payload.price);
@@ -26,13 +26,13 @@ const cartSlice = createSlice({
       const findItem = state.items.find((obj) => obj.name == action.payload.name);
       if (findItem.count > 1) {
         findItem.count--;
-        state.price -= Number(action.payload.price);
-      } else {
+        state.price -= Number(findItem.price);
+      } else if (findItem.count == 1) {
         state.items.splice(
-          state.items.findIndex((arrow) => arrow.id === action.payload),
+          state.items.findIndex((arrow) => arrow === findItem),
           1,
         );
-        state.price -= Number(action.payload.price);
+        state.price -= Number(findItem.price);
       }
     },
   },
